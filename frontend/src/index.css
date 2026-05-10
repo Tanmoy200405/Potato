@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+  --primary-color: #FFB800; /* Golden Amber */
+  --secondary-color: #ffffff; 
+  --accent-color: #00D084; /* Fresh Mint */
+  --bg-color: #09261E; /* Deep Forest Green */
+  --surface-color: #123C30; /* Emerald Slate */
+  --text-main: #F0F4F2; /* Soft Mint White */
+  --text-muted: #8AA899; /* Sage Gray */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 10px 30px -3px rgba(0, 0, 0, 0.4);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  transition: background-color 0.4s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  width: 85%;
+  margin: auto;
+  max-width: 1440px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--glass-border);
+  margin: 10px 0;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.section-title span {
+    color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1050px) {
+  .app { width: 92%; }
+}
+
+@media (max-width: 750px) {
+  .app { width: 95%; }
+}

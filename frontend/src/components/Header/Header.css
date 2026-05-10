@@ -1,0 +1,95 @@
+.header {
+    height: 45vw;
+    margin: 30px auto;
+    background: linear-gradient(rgba(9, 38, 30, 0.7), rgba(9, 38, 30, 0.2)), url('/potato_hero.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-lg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.header-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2vw;
+    max-width: 60%;
+    padding-left: 6vw;
+    animation: fadeIn 1s ease-out;
+}
+
+.header-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: white;
+    font-size: max(4.5vw, 34px);
+    line-height: 1.1;
+}
+
+.header-title span {
+    color: var(--primary-color);
+}
+
+.header-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1vw;
+    line-height: 1.6;
+    max-width: 80%;
+}
+
+.header-btns {
+    display: flex;
+    gap: 1.5vw;
+}
+
+.header-contents button {
+    border: none;
+    font-weight: 600;
+    padding: 1.2vw 2.5vw;
+    font-size: max(1vw, 14px);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    box-shadow: 0 10px 20px rgba(255, 184, 0, 0.3);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(5px);
+}
+
+.secondary-btn:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white !important;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1050px) {
+    .header { height: 50vw; }
+    .header-contents { max-width: 70%; }
+    .header-desc { font-size: 14px; }
+}
+
+@media (max-width: 750px) {
+    .header { height: 60vw; }
+    .header-contents { max-width: 90%; padding-left: 4vw; gap: 3vw; }
+    .header-desc { display: none; }
+    .header-btns { width: 100%; }
+}

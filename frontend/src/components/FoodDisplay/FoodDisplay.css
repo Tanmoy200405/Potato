@@ -1,0 +1,23 @@
+.food-display {
+    margin-top: 40px;
+    animation: fadeIn 1s ease;
+}
+
+.food-display-header {
+    margin-bottom: 40px;
+}
+
+.food-display-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 35px;
+    row-gap: 60px;
+}
+
+@media (max-width: 1050px) {
+    .food-display-list {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+        row-gap: 40px;
+    }
+}

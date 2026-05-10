@@ -1,0 +1,40 @@
+services:
+  # Backend Service
+  - type: web
+    name: potato-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+
+  # Frontend Static Site
+  - type: web
+    name: potato-frontend
+    env: static
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: https://potato-backend.onrender.com
+
+  # Admin Static Site
+  - type: web
+    name: potato-admin
+    env: static
+    plan: free
+    rootDir: admin
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        value: https://potato-backend.onrender.com
