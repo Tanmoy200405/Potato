@@ -4,6 +4,13 @@ Potato is a high-fidelity, full-stack food delivery application designed with a 
 
 ![Potato Hero](frontend/public/potato_hero.png)
 
+## 🌐 Live Demo
+
+- **Frontend**: [https://potato-frontend-6b2l.onrender.com](https://potato-frontend-6b2l.onrender.com)
+- **Admin Panel**: [https://potato-admin.onrender.com](https://potato-admin.onrender.com)
+- **Backend API**: [https://potato-backend-jdzs.onrender.com](https://potato-backend-jdzs.onrender.com)
+
+
 ## ✨ Key Features
 
 - **Royal Forest UI**: A sophisticated, cinematic interface using deep forest greens and golden amber accents.
