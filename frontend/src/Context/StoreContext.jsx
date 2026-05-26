@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
-    const url = "https://potato-backend-jdzs.onrender.com"
+    const url = import.meta.env.VITE_BACKEND_URL
     const [food_list, setFoodList] = useState(assets_food_list);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
