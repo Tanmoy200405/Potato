@@ -15,13 +15,9 @@ const port = process.env.PORT || 4000;
 // middlewares
 app.use(express.json())
 app.use(cors({
-  origin: [
-    "https://potato-frontend.vercel.app",
-    "https://potato-admin.vercel.app",
-    "https://potato-zeta-wheat.vercel.app",
-    "http://localhost:5173",
-    "http://localhost:5174"
-  ],
+  origin: (origin, callback) => {
+    callback(null, true);
+  },
   credentials: true
 }))
 
