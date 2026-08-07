@@ -15,26 +15,26 @@ const port = process.env.PORT || 4000;
 // middlewares
 app.use(express.json())
 app.use(cors({
-  origin: function(origin, callback) {
-    if (!origin) return callback(null, true);
-    return callback(null, origin);
-  },
-  credentials: true
+  origin: (origin, callback) => callback(null, true),
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization", "token", "Origin", "X-Requested-With", "Accept"]
 }))
+app.options('*', cors())
 
 // db connection
 connectDB()
 
-// api endpoints
-app.use("/api/user", userRouter)
-app.use("/api/food", foodRouter)
-app.use("/images",express.static('uploads'))
-app.use("/api/cart", cartRouter)
-app.use("/api/order",orderRouter)
+// api endpoints (dual mounted to support both /api and root paths)
+app.use(["/api/user", "/user"], userRouter)
+app.use(["/api/food", "/food"], foodRouter)
+app.use("/images", express.static('uploads'))
+app.use(["/api/cart", "/cart"], cartRouter)
+app.use(["/api/order", "/order"], orderRouter)
 
 app.get("/", (req, res) => {
     res.send("API Working")
-  });
+});
 
 if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
   app.listen(port, () => console.log(`Server started on http://localhost:${port}`))

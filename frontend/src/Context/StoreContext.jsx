@@ -48,15 +48,25 @@ const StoreContextProvider = (props) => {
     }
 
     const fetchFoodList = async () => {
-        const response = await axios.get(url + "/api/food/list");
-        if (response.data.data.length > 0) {
-            setFoodList(response.data.data)
+        try {
+            const response = await axios.get(url + "/api/food/list");
+            if (response.data && response.data.success && Array.isArray(response.data.data)) {
+                setFoodList(response.data.data);
+            }
+        } catch (error) {
+            console.error("Error fetching food list:", error);
         }
     }
 
     const loadCartData = async (token) => {
-        const response = await axios.post(url + "/api/cart/get", {}, { headers: token });
-        setCartItems(response.data.cartData);
+        try {
+            const response = await axios.post(url + "/api/cart/get", {}, { headers: token });
+            if (response.data && response.data.success && response.data.cartData) {
+                setCartItems(response.data.cartData);
+            }
+        } catch (error) {
+            console.error("Error loading cart data:", error);
+        }
     }
 
     useEffect(() => {
