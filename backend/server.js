@@ -18,6 +18,7 @@ app.use(cors({
   origin: [
     "https://potato-frontend.vercel.app",
     "https://potato-admin.vercel.app",
+    "https://potato-zeta-wheat.vercel.app",
     "http://localhost:5173",
     "http://localhost:5174"
   ],

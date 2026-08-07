@@ -5,7 +5,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
 
-    const url = import.meta.env.VITE_BACKEND_URL
+    const url = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/$/, "");
     const [food_list, setFoodList] = useState(assets_food_list);
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("")
