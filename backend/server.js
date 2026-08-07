@@ -15,8 +15,9 @@ const port = process.env.PORT || 4000;
 // middlewares
 app.use(express.json())
 app.use(cors({
-  origin: (origin, callback) => {
-    callback(null, true);
+  origin: function(origin, callback) {
+    if (!origin) return callback(null, true);
+    return callback(null, origin);
   },
   credentials: true
 }))
